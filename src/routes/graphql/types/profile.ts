@@ -11,7 +11,9 @@ export const ProfileType = new GraphQLObjectType({
     memberType: {
       type: MemberType,
       resolve(parent, args, { prisma }) {
-        return prisma.memberType.findUnique({ where: { id: parent.memberTypeId } }) || null;
+        return (
+          prisma.memberType.findUnique({ where: { id: parent.memberTypeId } }) || null
+        );
       },
     },
   },
